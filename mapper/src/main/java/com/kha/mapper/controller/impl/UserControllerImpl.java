@@ -3,6 +3,7 @@ package com.kha.mapper.controller.impl;
 import com.kha.mapper.controller.IUserController;
 import com.kha.mapper.dto.UserDto;
 import com.kha.mapper.service.IUserService;
+import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
@@ -18,13 +19,13 @@ public class UserControllerImpl implements IUserController {
 
     @Override
     @PostMapping("/create")
-    public UserDto createUser(@RequestBody UserDto userDto) {
+    public UserDto createUser(@RequestBody @Valid UserDto userDto) {
         return userService.createUser(userDto);
     }
 
     @Override
     @PostMapping("/update")
-    public UserDto updateUser(@RequestBody UserDto userDto) {
+    public UserDto updateUser(@RequestBody @Valid UserDto userDto) {
         return userService.updateUser(userDto);
     }
 
